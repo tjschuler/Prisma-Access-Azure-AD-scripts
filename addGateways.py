@@ -18,8 +18,7 @@ gateways = values[3].split(',')
 replyurls = ["https://"+portal+":443/SAML20/SP/ACS"]
 # Put the portal as the first item in the list so it will be the default.
 identifiers = ["https://"+portal+":443/SAML20/SP"]
-# The Azure command overwrites the current configuration and requires the full list.
-# This section adds the gateways to the list in the correct format.
+# This section adds the gateways to a list in the correct format.
 for g in gateways:
     replyurls.append("https://"+g.lstrip()+":443/SAML20/SP/ACS")
     identifiers.append("https://"+g.lstrip()+":443/SAML20/SP")
@@ -48,7 +47,7 @@ newidentifierUris = list(set(identifiers) - set(originalidentifierUris))
 replyCommand = ""
 idCommand = ""
 
-# Generate a list of gateways seperated by a space.
+# Generate a list of the new gateways seperated by a space.
 for url in newreplyUrls:
     replyCommand += url+" "
 
