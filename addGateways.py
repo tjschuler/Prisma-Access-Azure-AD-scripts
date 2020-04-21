@@ -57,13 +57,13 @@ for uri in newidentifierUris:
 
 # Add the new values to the RelyURLS and Identifiers lists.
 if replyCommand != "":
-    print("Replacing the ReplyURLs...")
+    print("Updating the ReplyURLs...")
     print(os.popen('az ad app update --id ' + objectId + ' --add replyUrls ' + replyCommand).read())
 else:
     print("No new ReplyUrls...")
 
 if idCommand != "":
-    print("Replacing the Identifier-URIs")
+    print("Updating the Identifier-URIs")
     print(os.popen('az ad app update --id ' + objectId + ' --add identifierUris ' + idCommand).read())
 else:
     print("No new IdentifierUris...")
